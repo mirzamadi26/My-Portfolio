@@ -8,33 +8,22 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi Everyone, I am <span className="purple">Soumyajit Behera </span>
-            from <span className="purple"> Bhubaneswar, India.</span>
+            Hi Everyone, I am <span className="purple">Muhammad Hammad </span>
+            from <span className="purple"> Punjab, Pakistan.</span>
             <br />
-            I am currently employed as a software developer at Juspay.
+            I am currently employed as a Flutter developer at ITCoderz.
             <br />
-            I have completed Integrated MSc (IMSc) in Maths and Computing at BIT
-            Mesra.
+            Experienced Flutter Developer skilled in designing and developing production-level mobile applications
             <br />
             <br />
-            Apart from coding, some other activities that I love to do!
+           
+          I have experience developing mobile applications for both Android and iOS platforms using various technologies as backend. I am eager to continue learning and staying up-to-date with the latest industry trends and advancements, so I can create innovative solutions for complex problems. 
           </p>
-          <ul>
-            <li className="about-activity">
-              <ImPointRight /> Playing Games
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Writing Tech Blogs
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Travelling
-            </li>
-          </ul>
 
           <p style={{ color: "rgb(155 126 172)" }}>
             "Strive to build things that make a difference!"{" "}
           </p>
-          <footer className="blockquote-footer">Soumyajit</footer>
+          <footer className="blockquote-footer">Hammad</footer>
         </blockquote>
       </Card.Body>
     </Card>
