@@ -27,7 +27,7 @@ function Home2() {
               <br></br>
               I focus on building cross-platform mobile applications using <b className="purple">
                   Flutter
-                </b> , crafting beautiful, high-performance apps that meet user needs and deliver exceptional functionality. My interests extend to exploring <b className="purple">
+                </b> , crafting beautiful, high-performance apps that meet user needs and deliver exceptional functionality. My interests extend to explore <b className="purple">
                 cutting-edge technologies 
                 </b>  in mobile development and integrating them to create <b className="purple">
                 impactful solutions.
