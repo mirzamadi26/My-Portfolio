@@ -73,7 +73,7 @@ function Home2() {
                   <FaLinkedinIn />
                 </a>
               </li>
-              <li className="social-icons">
+              {/* <li className="social-icons">
                 <a
                   href="https://www.instagram.com/mirza_madi_/"
                   target="_blank"
@@ -83,7 +83,7 @@ function Home2() {
                   <AiFillInstagram />
                   
                 </a>
-              </li>
+              </li> */}
               <li className="social-icons">
                 <a
                   href="https://mail.google.com/mail/?view=cm&fs=1&to=mirzahammad149@gmail.com"

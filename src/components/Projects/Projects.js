@@ -95,7 +95,7 @@ appStoreLink= ""
 take after completing the lessons to reinforce their learning. Additionally, Neurobridge allows users to track the progress
 of their exercises, providing a comprehensive tool to assist with their development and growth."
 googlePlayLink=""
-             appStoreLink=""
+             appStoreLink="https://apps.apple.com/us/app/neurobridge/id6511249364"
             />
           </Col> 
 

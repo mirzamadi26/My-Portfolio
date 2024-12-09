@@ -78,61 +78,59 @@ function ProjectCards(props) {
     </Card>
    
     <Modal show={showModal} onHide={handleClose} centered>
-        <Modal.Body
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 0,
-          }}
-        >
-          <img
-            src={props.imgPath[currentImageIndex]}
-            alt={`image-${currentImageIndex}`}
-            style={{
-              width: "100vw",
-              height: "100vh",
-              objectFit: "contain",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <button
-              onClick={handlePrevImage}
-              style={{
-                background: "rgba(0, 0, 0, 0.5)",
-                color: "white",
-                border: "none",
-                cursor: "pointer",
-                padding: "10px 20px",
-                fontSize: "20px",
-              }}
-            >
-              ◀
-            </button>
-            <button
-              onClick={handleNextImage}
-              style={{
-                background: "rgba(0, 0, 0, 0.5)",
-                color: "white",
-                border: "none",
-                cursor: "pointer",
-                padding: "10px 20px",
-                fontSize: "20px",
-              }}
-            >
-              ▶
-            </button>
-          </div>
-        </Modal.Body>
+      <Modal.Body
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 0,
+    position: "relative", // Make the modal body a positioned container
+  }}
+>
+  <img
+    src={props.imgPath[currentImageIndex]}
+    alt={`image-${currentImageIndex}`}
+    style={{
+      width: "100vw",
+      height: "100vh",
+      objectFit: "contain",
+    }}
+  />
+  <button
+    onClick={handlePrevImage}
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "-550px", // Adjust as needed for spacing from the edge
+      transform: "translateY(-50%)",
+      background: "rgba(0, 0, 0, 0.5)",
+      color: "white",
+      border: "none",
+      cursor: "pointer",
+      padding: "10px 20px",
+      fontSize: "20px",
+    }}
+  >
+    ◀
+  </button>
+  <button
+    onClick={handleNextImage}
+    style={{
+      position: "absolute",
+      top: "50%",
+      right: "-550px", // Adjust as needed for spacing from the edge
+      transform: "translateY(-50%)",
+      background: "rgba(0, 0, 0, 0.5)",
+      color: "white",
+      border: "none",
+      cursor: "pointer",
+      padding: "10px 20px",
+      fontSize: "20px",
+    }}
+  >
+    ▶
+  </button>
+</Modal.Body>
       </Modal>
     </>
   );
