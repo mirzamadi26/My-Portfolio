@@ -104,9 +104,7 @@ googlePlayLink=""
               imgPath={[makanai]}
               isBlog={false}
               title="Makanai"
-              description="This app is designed to support individuals with autism. The app features educational lessons and quizzes that users can
-take after completing the lessons to reinforce their learning. Additionally, Neurobridge allows users to track the progress
-of their exercises, providing a comprehensive tool to assist with their development and growth."
+              description="This app is your AI-powered food assistant that helps you find the best nearby restaurants and cafes with just a chat. Get location-based food recommendations instantly and explore top-rated spots. The app also supports multiple languages, making your experience seamless. Enjoy hassle-free food discovery anytime, anywhere!"
 googlePlayLink=""
              appStoreLink=""
             />
