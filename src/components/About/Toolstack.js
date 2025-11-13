@@ -4,7 +4,7 @@ import {
   SiVisualstudiocode,
   SiPostman,
   SiSlack,
-  SiVercel,
+  // SiVercel,
   SiMacos,
   SiAndroidstudio,
   SiFirebase,
