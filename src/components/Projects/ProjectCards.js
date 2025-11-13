@@ -50,7 +50,7 @@ function ProjectCards(props) {
         <Card.Img 
           variant="top" 
           src={props.imgPath[0]} 
-          alt="card-img"  
+       alt={props.title}
           className="project-main-image"
           onClick={handleImageClick} 
         />
