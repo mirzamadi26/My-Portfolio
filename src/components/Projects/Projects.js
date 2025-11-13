@@ -21,6 +21,8 @@ import xbrikol from "../../Assets/Projects/18.png";
 import cartowuser from "../../Assets/Projects/19.png";
 import cartowcaptain from "../../Assets/Projects/20.png";
 
+
+
 function Projects() {
   // Use multiple images for Neighbstor to showcase the carousel
   const neighbstorImages = [SkillzMember, SkillzProvider, SkillzMember]; 
