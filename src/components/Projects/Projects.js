@@ -23,6 +23,8 @@ import cartowcaptain from "../../Assets/Projects/20.png";
 
 
 
+
+
 function Projects() {
   // Use multiple images for Neighbstor to showcase the carousel
   const neighbstorImages = [SkillzMember, SkillzProvider, SkillzMember]; 
