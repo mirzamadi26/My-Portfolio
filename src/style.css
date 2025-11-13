@@ -741,3 +741,86 @@ button:focus {
 .fork-btn-inner::after {
   display: none !important;
 }
+
+
+/* Custom Styles for Projects Section */
+
+/* This custom-bg class should apply a deep/dark background */
+.custom-bg {
+  /* Example: A subtle, dark gradient */
+  background: linear-gradient(180deg, #0f051d 0%, #1c0b39 100%); 
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.project-heading {
+  font-size: 3em !important;
+  font-weight: 800 !important;
+  padding-top: 10px !important;
+  color: white !important; /* Ensure main text is white */
+}
+
+/* Color used for <strong className="purple"> */
+.purple {
+  color: #a55eea !important; 
+}
+
+/* Custom Styles for Project Cards */
+
+.project-card {
+  padding: 20px !important;
+}
+
+.project-card-view {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 
+              0 10px 30px rgba(165, 94, 234, 0.15) !important; /* Elegant shadow with a purple glow */
+  color: white !important;
+  background-color: #1e1e2c !important; /* Darker card background for contrast */
+  border-radius: 10px !important;
+  transition: all 0.5s ease-in-out;
+  height: 100%; /* Important for equal height rows */
+}
+
+/* Hover effect for the card */
+.project-card-view:hover {
+  transform: translateY(-5px); /* Lift card slightly */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 
+              0 15px 40px rgba(165, 94, 234, 0.3) !important; /* Stronger shadow on hover */
+}
+
+.project-card-view .card-img-top:hover {
+  transform: scale(1.02); /* Subtle zoom on image hover */
+  box-shadow: 0 0 10px rgba(165, 94, 234, 0.5);
+}
+
+/* Store Buttons Styling */
+.store-button {
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 8px 18px !important;
+  font-size: 0.9em !important;
+  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.google-play-btn {
+  background-color: #4285F4 !important; /* Google Blue */
+}
+
+.app-store-btn {
+  background-color: #007AFF !important; /* Apple Blue */
+}
+
+.store-button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Fullscreen Modal Override (Needed if you want the dark background for images) */
+.modal.fullscreen-modal .modal-content {
+    background-color: transparent; /* Remove default modal background */
+    border: none;
+}
+.modal-backdrop.show {
+    opacity: 0.9 !important; /* Darken the background significantly */
+}
