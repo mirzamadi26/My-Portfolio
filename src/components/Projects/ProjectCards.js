@@ -1,24 +1,32 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Card, Button, Modal } from "react-bootstrap";
 import {
-  SiAppstore,
+  BsGithub,
+} from "react-icons/bs";
+import {
+  CgWebsite
+} from "react-icons/cg";
+import {
   SiGoogleplay,
+  SiAppstore,
+  // Removed SiLink, as it does not exist in react-icons/si
 } from "react-icons/si";
+import { 
+    FiLink // <--- ADDED: Importing a generic link icon from Feather Icons
+} from "react-icons/fi"; 
 
 function ProjectCards(props) {
   const [showModal, setShowModal] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const handleImageClick = (index) => {
-    setCurrentImageIndex(index); // Set the clicked image as the starting image
+  const handleImageClick = () => {
+    // Reset to the first image when opening
+    setCurrentImageIndex(0); 
     setShowModal(true);
   };
   
   const handleClose = () => {
     setShowModal(false);
-    // Optional: Reset index when closing modal if you want it to always open to the first image
-    // setCurrentImageIndex(0); 
   };
 
   const handleNextImage = () => {
@@ -30,150 +38,137 @@ function ProjectCards(props) {
       prevIndex === 0 ? props.imgPath.length - 1 : prevIndex - 1
     );
   };
-  
-  const hasMultipleImages = props.imgPath && props.imgPath.length > 1;
+
+  const hasMultipleImages = props.imgPath.length > 1;
 
   return (
     <>    
-      {/* Custom class 'project-card-view' needs accompanying CSS for a modern look */}
-      <Card className="project-card-view">
+    {/* PROJECT CARD */}
+    <Card className="project-card-view custom-project-card">
+      {/* Card Image */}
+      <div className="card-img-container">
         <Card.Img 
           variant="top" 
           src={props.imgPath[0]} 
-          alt="Project Screenshot"
-          // Enhanced: Added a subtle shadow and scale on hover for better visual feedback
-          style={{ 
-            borderRadius: "10px 10px 0 0", 
-            cursor: "pointer",
-            transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-            objectFit: 'cover', // Ensures image covers the area nicely
-            maxHeight: '250px', // Set a reasonable height for all card images
-          }}
-          onClick={() => handleImageClick(0)} // Always show the first image on card click
+          alt="card-img"  
+          className="project-main-image"
+          onClick={handleImageClick} 
         />
-        <Card.Body>
-          {/* Enhanced: Typography update */}
-          <Card.Title style={{ color: "#a55eea", fontWeight: 700, fontSize: "1.4em" }}>
-            {props.title}
-          </Card.Title>
-          {/* Enhanced: Readability update */}
-          <Card.Text style={{ textAlign: "justify", color: "rgb(200, 200, 200)", fontSize: "1em" }}>
-            {props.description}
-          </Card.Text>
-          
-          <div style={{ marginTop: "20px" }}>
-            {/* Google Play Store button */}
-            {props.googlePlayLink && (
-                <Button
-                  variant="primary"
-                  href={props.googlePlayLink}
-                  target="_blank"
-                  className="store-button google-play-btn" // Custom classes for styling
-                >
-                  <SiGoogleplay /> &nbsp; Play Store
-                </Button>
-              )}
-
-              {/* App Store button */}
-              {props.appStoreLink && (
-                <Button
-                  variant="primary"
-                  href={props.appStoreLink}
-                  target="_blank"
-                  className="store-button app-store-btn" // Custom classes for styling
-                >
-                  <SiAppstore /> &nbsp; App Store
-                </Button>
-            )}
+        {hasMultipleImages && (
+          <div className="image-count-badge" onClick={handleImageClick}>
+            {props.imgPath.length} Screenshots 📸
           </div>
-        </Card.Body>
-      </Card>
-      
-      {/* Image Gallery Modal */}
-      <Modal show={showModal} onHide={handleClose} dialogClassName="fullscreen-modal" centered>
-        <Modal.Header 
-          closeButton 
-          style={{ border: 'none', background: 'rgba(0, 0, 0, 0.8)', padding: '10px' }}
-        />
-        <Modal.Body
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 0,
-            position: "relative",
-            background: 'rgba(0, 0, 0, 0.8)', // Dark overlay for focus
-            minHeight: '80vh',
-          }}
-        >
-          {/* Image Display */}
-          <img
-            src={props.imgPath[currentImageIndex]}
-            alt={`image-${currentImageIndex}`}
-            style={{
-              maxWidth: "90%",
-              maxHeight: "90vh",
-              objectFit: "contain",
-              transition: "opacity 0.5s ease-in-out", // Smooth transition when image changes
-            }}
-          />
-          
-          {/* Only show navigation if there is more than one image */}
-          {hasMultipleImages && (
-            <>
-              {/* Previous Button */}
-              <button
-                onClick={handlePrevImage}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "20px",
-                  transform: "translateY(-50%)",
-                  background: "rgba(255, 255, 255, 0.2)", // Subtle background
-                  color: "white",
-                  border: "none",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  padding: "15px",
-                  fontSize: "24px",
-                  zIndex: 10, // Ensure it's above the image
-                  transition: "background 0.3s",
-                }}
-                onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.4)'}
-                onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
-              >
-                &#9664; {/* Left arrow */}
-              </button>
-              
-              {/* Next Button */}
-              <button
-                onClick={handleNextImage}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  right: "20px",
-                  transform: "translateY(-50%)",
-                  background: "rgba(255, 255, 255, 0.2)",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  padding: "15px",
-                  fontSize: "24px",
-                  zIndex: 10,
-                  transition: "background 0.3s",
-                }}
-                onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.4)'}
-                onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
-              >
-                &#9654; {/* Right arrow */}
-              </button>
-            </>
+        )}
+      </div>
+
+      <Card.Body>
+        <Card.Title className="project-title-name">{props.title}</Card.Title>
+        <Card.Text className="project-description-text">
+          {props.description}
+        </Card.Text>
+        
+        <div className="project-button-group">
+          {/* GitHub Button */}
+          {props.ghLink && (
+            <Button
+              variant="primary"
+              href={props.ghLink}
+              target="_blank"
+              className="project-button gh-button"
+            >
+              <BsGithub /> &nbsp; GitHub
+            </Button>
           )}
-        </Modal.Body>
-      </Modal>
+
+          {/* Website Button (For non-mobile links) */}
+          {props.demoLink && !props.googlePlayLink && !props.appStoreLink && (
+            <Button
+              variant="primary"
+              href={props.demoLink}
+              target="_blank"
+              className="project-button demo-button"
+            >
+              <CgWebsite /> &nbsp; Demo
+            </Button>
+          )}
+
+          {/* Google Play Store button */}
+          {props.googlePlayLink && (
+              <Button
+                variant="primary"
+                href={props.googlePlayLink}
+                target="_blank"
+                className="project-button playstore-button"
+              >
+                <SiGoogleplay /> &nbsp; Play Store
+              </Button>
+            )}
+
+            {/* App Store button */}
+            {props.appStoreLink && (
+              <Button
+                variant="primary"
+                href={props.appStoreLink}
+                target="_blank"
+                className="project-button appstore-button"
+              >
+                <SiAppstore /> &nbsp; App Store
+              </Button>
+            
+          )}
+           {/* Generic Link Button (if only a general link exists) */}
+           {/* USING FiLink HERE */}
+           {props.link && !props.ghLink && !props.demoLink && !props.googlePlayLink && !props.appStoreLink && (
+              <Button
+                variant="primary"
+                href={props.link}
+                target="_blank"
+                className="project-button link-button"
+              >
+                <FiLink /> &nbsp; Link
+              </Button>
+            )}
+        </div>
+      </Card.Body>
+    </Card>
+   
+    {/* IMAGE CAROUSEL MODAL */}
+    <Modal 
+      show={showModal} 
+      onHide={handleClose} 
+      centered 
+      dialogClassName="custom-modal-dialog" // Custom class for modal size/styling
+    >
+      <Modal.Header closeButton className="modal-custom-header">
+        <Modal.Title>{props.title} - Screenshot {currentImageIndex + 1} of {props.imgPath.length}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="modal-custom-body">
+        <img
+          src={props.imgPath[currentImageIndex]}
+          alt={`image-${currentImageIndex}`}
+          className="modal-image-content"
+        />
+
+        {/* Navigation Buttons (Only show if multiple images exist) */}
+        {hasMultipleImages && (
+          <>
+            <button
+              onClick={handlePrevImage}
+              className="modal-nav-button prev-button"
+            >
+              ◀
+            </button>
+            <button
+              onClick={handleNextImage}
+              className="modal-nav-button next-button"
+            >
+              ▶
+            </button>
+          </>
+        )}
+      </Modal.Body>
+    </Modal>
     </>
   );
 }
-
 export default ProjectCards;
